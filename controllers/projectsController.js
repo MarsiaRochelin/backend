@@ -1,6 +1,6 @@
 // IMPORTS //
 const express = require("express");
-const coders = express.Router();
+const projects = express.Router();
 
 // ROUTES //
 
@@ -15,4 +15,4 @@ const coders = express.Router();
 // UPDATE
 
 // EXPORTS //
-module.exports = coders;
+module.exports = projects;
