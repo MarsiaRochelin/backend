@@ -5,6 +5,9 @@ const project = express.Router();
 // ROUTES //
 
 // INDEX
+project.get("/", (req, res) => {
+  res.json({ status: "ok" });
+});
 
 // SHOW
 
