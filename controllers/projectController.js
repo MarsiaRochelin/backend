@@ -1,7 +1,7 @@
 // IMPORTS //
 const express = require("express");
 const project = express.Router();
-const { getAllProjects } = require("../queries/projects");
+const { getAllProjects, getSingleProject } = require("../queries/projects");
 
 // ROUTES //
 
@@ -16,6 +16,15 @@ project.get("/", async (req, res) => {
 });
 
 // SHOW
+project.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  const project = await getSingleProject(id);
+  if (!project.message) {
+    res.status(200).json(project);
+  } else {
+    res.status(404).json({ error: "not-found" });
+  }
+});
 
 // CREATE
 
