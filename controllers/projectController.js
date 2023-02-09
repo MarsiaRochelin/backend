@@ -5,8 +5,13 @@ const project = express.Router();
 // ROUTES //
 
 // INDEX
-project.get("/", (req, res) => {
-  res.json({ status: "ok" });
+project.get("/", async (req, res) => {
+  const allProjects = await getAllProjects();
+  if (allProjects[0]) {
+    res.status(200).json(allProjects);
+  } else {
+    res.status(500).json({ error: "server error" });
+  }
 });
 
 // SHOW
