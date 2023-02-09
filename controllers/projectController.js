@@ -1,6 +1,7 @@
 // IMPORTS //
 const express = require("express");
 const project = express.Router();
+const { getAllProjects } = require("../queries/projects");
 
 // ROUTES //
 

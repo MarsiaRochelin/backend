@@ -1,7 +1,7 @@
 // DEPENDENCIES //
 const cors = require("cors");
 const express = require("express");
-const projectController = require("./controllers/projectController.js");
+const projectController = require("./controllers/projectController");
 
 // CONFIGURATION //
 const app = express();
