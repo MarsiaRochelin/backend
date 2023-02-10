@@ -21,7 +21,40 @@ const getSingleProject = async (id) => {
   }
 };
 
+const newProject = async (project) => {
+  try {
+    const newProject = await db.one(
+      "INSERT INTO projects (project_name, project_description, technology_utilized, start_date, due_date , email) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
+      [
+        project.project_name,
+        project.project_description,
+        project.technology_utilized,
+        project.start_date,
+        project.due_date,
+        project.email,
+      ]
+    );
+    return newProject;
+  } catch (error) {
+    return error;
+  }
+};
+
+const deleteProject = async (id) => {
+  try {
+    const deletedProject = await db.one(
+      "DELETE FROM projects WHERE id=$1 RETURNING *",
+      id
+    );
+    return deletedProject;
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   getAllProjects,
   getSingleProject,
+  newProject,
+  deleteProject,
 };

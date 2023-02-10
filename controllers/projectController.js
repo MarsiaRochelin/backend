@@ -1,7 +1,13 @@
 // IMPORTS //
 const express = require("express");
 const project = express.Router();
-const { getAllProjects, getSingleProject } = require("../queries/projects");
+const {
+  getAllProjects,
+  getSingleProject,
+  newProject,
+  deleteProject,
+} = require("../queries/projects");
+const { checkProjectName } = require("../validations/checkProjects");
 
 // ROUTES //
 
@@ -27,8 +33,25 @@ project.get("/:id", async (req, res) => {
 });
 
 // CREATE
+project.post("/", checkProjectName, async (req, res) => {
+  try {
+    const project = await newProject(req.body);
+    res.status(200).json(project);
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+});
 
 // DELETE
+project.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedProject = await deleteProject(id);
+    res.status(200).json(deletedProject);
+  } catch (error) {
+    res.status(404).json({ error: "id not found" });
+  }
+});
 
 // UPDATE
 
