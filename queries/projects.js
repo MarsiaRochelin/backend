@@ -1,5 +1,7 @@
+// CONFIGURATION //
 const db = require("../db/dbConfig");
 
+//INDEX
 const getAllProjects = async () => {
   try {
     const allProjects = await db.any("SELECT * FROM projects");
@@ -9,6 +11,7 @@ const getAllProjects = async () => {
   }
 };
 
+//SHOW
 const getSingleProject = async (id) => {
   try {
     const singleProject = await db.one(
@@ -21,6 +24,7 @@ const getSingleProject = async (id) => {
   }
 };
 
+//CREATE
 const newProject = async (project) => {
   try {
     const newProject = await db.one(
@@ -40,6 +44,7 @@ const newProject = async (project) => {
   }
 };
 
+//DELETE
 const deleteProject = async (id) => {
   try {
     const deletedProject = await db.one(
@@ -52,9 +57,32 @@ const deleteProject = async (id) => {
   }
 };
 
+//UPDATE
+const updateProject = async (id) => {
+  try {
+    const updatedProject = await db.one(
+      "UPDATE projects SET project_name=$1, project_description=$2, technology_utilized=$3, start_date=$4, due_date=$5, email=$6 Returning *",
+      [
+        project.project_name,
+        project.project_description,
+        project.technology_utilized,
+        project.start_date,
+        project.due_date,
+        project.email,
+        id,
+      ]
+    );
+    return updatedProject;
+  } catch (error) {
+    return error;
+  }
+};
+
+// EXPORT //
 module.exports = {
   getAllProjects,
   getSingleProject,
   newProject,
   deleteProject,
+  updateProject,
 };
