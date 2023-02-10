@@ -55,7 +55,7 @@ project.delete("/:id", async (req, res) => {
 });
 
 // UPDATE
-project.put("/:id", async (req, res) => {
+project.put("/:id", checkProjectName, async (req, res) => {
   try {
     const { id } = req.params;
     const updatedProject = await updateProject(id, req.body);
