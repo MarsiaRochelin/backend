@@ -1,6 +1,6 @@
 // IMPORTS //
 const express = require("express");
-const project = express.Router();
+const projects = express.Router();
 const {
   getAllProjects,
   getSingleProject,
@@ -13,7 +13,7 @@ const { checkProjectName } = require("../validations/checkProjects");
 // ROUTES //
 
 // INDEX
-project.get("/", async (req, res) => {
+projects.get("/", async (req, res) => {
   const allProjects = await getAllProjects();
   if (allProjects[0]) {
     res.status(200).json(allProjects);
@@ -23,7 +23,7 @@ project.get("/", async (req, res) => {
 });
 
 // SHOW
-project.get("/:id", async (req, res) => {
+projects.get("/:id", async (req, res) => {
   const { id } = req.params;
   const project = await getSingleProject(id);
   if (!project.message) {
@@ -34,7 +34,7 @@ project.get("/:id", async (req, res) => {
 });
 
 // CREATE
-project.post("/", checkProjectName, async (req, res) => {
+projects.post("/", checkProjectName, async (req, res) => {
   try {
     const project = await newProject(req.body);
     res.status(200).json(project);
@@ -44,7 +44,7 @@ project.post("/", checkProjectName, async (req, res) => {
 });
 
 // DELETE
-project.delete("/:id", async (req, res) => {
+projects.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const deletedProject = await deleteProject(id);
@@ -55,7 +55,7 @@ project.delete("/:id", async (req, res) => {
 });
 
 // UPDATE
-project.put("/:id", checkProjectName, async (req, res) => {
+projects.put("/:id", checkProjectName, async (req, res) => {
   try {
     const { id } = req.params;
     const updatedProject = await updateProject(id, req.body);
@@ -66,4 +66,4 @@ project.put("/:id", checkProjectName, async (req, res) => {
 });
 
 // EXPORTS //
-module.exports = project;
+module.exports = projects;

@@ -1,7 +1,7 @@
 // DEPENDENCIES //
 const cors = require("cors");
 const express = require("express");
-const projectController = require("./controllers/projectController");
+const projectsController = require("./controllers/projectController");
 
 // CONFIGURATION //
 const app = express();
@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/project", projectController);
+app.use("/projects", projectsController);
 
 // ROUTES //
 app.get("/", (req, res) => {
