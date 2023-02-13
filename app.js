@@ -9,7 +9,7 @@ const app = express();
 // MIDDLEWARE //
 app.use(cors());
 app.use(express.json());
-
+//projects ROUTES
 app.use("/projects", projectsController);
 
 // ROUTES //
