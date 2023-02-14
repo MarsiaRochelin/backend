@@ -14,7 +14,7 @@ app.use("/projects", projectsController);
 
 // ROUTES //
 app.get("/", (req, res) => {
-  res.send("Welcome to the To Code or Not Code App");
+  res.send("Welcome to the To Code or Not To Code App");
 });
 
 app.get("*", (req, res) => {
