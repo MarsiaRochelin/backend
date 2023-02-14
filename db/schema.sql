@@ -4,6 +4,7 @@ CREATE DATABASE projects_dev;
 \c projects_dev
 
 DROP TABLE IF EXISTS projects;
+
 CREATE TABLE projects (
     id SERIAL PRIMARY KEY, 
     project_name VARCHAR(50), 
