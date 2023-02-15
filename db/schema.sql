@@ -10,8 +10,8 @@ CREATE TABLE projects (
     project_name VARCHAR(50), 
     project_description TEXT, 
     technology_utilized TEXT, 
-    start_date DATE, 
-    due_date DATE, 
+    start_date NUMERIC, 
+    due_date NUMERIC, 
     email VARCHAR(50)
     );
 
