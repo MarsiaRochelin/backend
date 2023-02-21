@@ -15,6 +15,7 @@
 cors(to allow your frontend to access your backend app)
 dotenv(to store .env file configuration in files like our server.js)
 express (it provides mechanisms to: Write handlers for requests with different HTTP verbs at different URL paths (routes))
+
 6.run the npm run db:init command for the initialization of a new database and to create tables
 7.run the npm run db:seed for the seeding of the table(s) with data
 8.npm install pg-promise in order to connect your Postrgres data base in express
