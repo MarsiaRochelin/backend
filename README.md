@@ -1,5 +1,7 @@
 ### Backend setup
 
+**Deployed frontend:** https://stately-capybara-6fc33a.netlify.app/
+
 1. Fork and clone this repo
 2. CD into directory
 3. touch your repo with an .env
