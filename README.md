@@ -1,6 +1,6 @@
 ### Backend setup
 
-**Deployed frontend:** https://stately-capybara-6fc33a.netlify.app/
+**Deployed backend:** https://portfolio-project-backend.onrender.com/projects
 
 1. Fork and clone this repo
 2. CD into directory
