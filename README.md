@@ -1,6 +1,6 @@
-### Backend setup
-
 **Deployed backend:** https://portfolio-project-backend.onrender.com/projects
+
+### Backend setup
 
 1. Fork and clone this repo
 2. CD into directory open it in VSCode
